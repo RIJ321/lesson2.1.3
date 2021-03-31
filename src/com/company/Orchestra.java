@@ -5,45 +5,39 @@ public class Orchestra extends Music {
     private int quantity;
     private String song;
     private int verse;
+    private MusicHall musicHall;
     private Musical_instrument instrument;
 
-    public Orchestra(int nums, String chords, String place, Musical_instrument instrument) {
-        super(nums, chords, place, instrument);
-        System.out.println("Quantity: " + nums + "\n" +
-                "Place: " + place + "\n" +
-                "Instrument: " + instrument);
-    }
 
-    public Orchestra(int nums, String chords, String place) {
+    public Orchestra(int nums, String chords, String place, Musical_instrument instrument, MusicHall musicHall) {
         super(nums, chords, place);
+        this.instrument = instrument;
+        this.musicHall = musicHall;
     }
 
-    public void play(int verse, int quantity) {
-        this.verse = verse;
+    public Orchestra(int nums, String chords, String place, int quantity) {
+        super(nums, chords, place);
         this.quantity = quantity;
-        System.out.println(
-                "\n___________\n" +
-                        "Verse: " + verse +
-                        "\nQuantity: " + quantity);
     }
 
-    public void play(int quantity, Musical_instrument instrument) {
-        this.verse = verse;
-        this.quantity = quantity;
-        System.out.println(
-                "\n___________\n" + "\n" +
-                        "Instruments: " + instrument + "\n" +
-                        "Quantity: " + quantity+"\n");
+    @Override
+    public void info() {
+        super.info();
+        System.out.println("\n" +
+                "Quantity: " + getQuantity() + "\n" +
+                "Song: " + getSong() + "\n" +
+                "Verse: " + getVerse() + "\n" +
+                "Instrument: " + getInstrument() + "\n" +
+                "Music hall: " + getMusicHall().getNameOfHall() + "\n" +
+                "City: " + getMusicHall().getCity());
     }
 
-    public void play(String song, int quantity) {
-        this.song = song;
-        this.quantity = quantity;
+    public Musical_instrument getInstrument() {
+        return instrument;
+    }
 
-        System.out.println(
-                "Now plays: " + song +
-                        "\nQuantity: " + quantity
-        );
+    public MusicHall getMusicHall() {
+        return musicHall;
     }
 
     public int getQuantity() {
@@ -58,7 +52,38 @@ public class Orchestra extends Music {
         return verse;
     }
 
-    protected void play(int verse, int age, String male) {
+    public void playVerse(int verse, int quantity) {
+        this.verse = verse;
+        this.quantity = quantity;
+        System.out.println("\nVERSE\n" +
+                "Verse: " + verse + "\n" +
+                "Quantity: " + quantity);
+    }
 
+    public void playCover(int quantity, Musical_instrument instrument) {
+        this.quantity = quantity;
+        System.out.println("\nCOVER\n" +
+                "Instruments: " + instrument + "\n" +
+                "Quantity: " + quantity + "\n");
+    }
+
+    public final void bridge(int quantity) {
+        this.quantity = quantity;
+        System.out.println("BRIDGE\n" + "Quantitty: " + quantity);
+    }
+
+    public void allSong(String song, int quantity) {
+        this.song = song;
+        this.quantity = quantity;
+
+        System.out.println(
+                "Now plays: " + song +
+                        "\nQuantity: " + quantity
+        );
+    }
+
+    @Override
+    public void pianists() {
+        super.pianists();
     }
 }

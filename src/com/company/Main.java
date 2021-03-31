@@ -4,14 +4,19 @@ public class Main {
 
     public static void main(String[] args) {
 
-        Orchestra orchestra = new Orchestra(30,"A4","Anywhere",Musical_instrument.ALL);
-        orchestra.play(30,Musical_instrument.ALL);
-        Pianist pianist = new Pianist(3, "A4", "Behind, in middle");
-        System.out.println("Nums: " + pianist.getNums() +"\n" +
-                "Chords: " + pianist.getChords() + "\n" +
-                "Place: " + pianist.getPlace());
-        pianist.play(2, 3, "f");
-        pianist.play(3,2);
+        Orchestra orchestra = new Orchestra(30, "A4", "Anywhere", Musical_instrument.ALL,
+                new MusicHall("London", "Big Hall"));
+        orchestra.allSong("Kanon", 30);
+        orchestra.playVerse(1, 13);
+        orchestra.playCover(15,Musical_instrument.VIOLIN);
+        orchestra.bridge(2);
+
+
+        Pianist malePianist = new Pianist(1, "D8", "On behind", 1);
+        malePianist.pianists("female");
+        Pianist femalePianist = new Pianist(1,"C#","In the middle",1);
+        femalePianist.pianists("male");
+
     }
 }
 

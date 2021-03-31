@@ -5,24 +5,33 @@ public class Music {
     private int nums;
     private String chords;
     private String place;
-    private Musical_instrument instrument;
 
-    public Music (int nums, String chords,String place, Musical_instrument instrument){
+
+    public Music(int nums, String chords, String place) {
         this.chords = chords;
         this.nums = nums;
         this.place = place;
-        this.instrument = instrument;
     }
 
-    public Music(int nums, String chords, String place) {
+
+    /*public Music(int nums, String chords, String place) {
         this.nums = nums;
         this.chords=chords;
         this.place = place;
+    }*/
+    public void info() {
+        System.out.println("\nNums: " + nums + "\n" +
+                "Chords: " + chords + "\n" +
+                "Place: " + place + "\n");
     }
 
-    public Musical_instrument getInstrument() {
-        return instrument;
+    public void pianists() {
+        System.out.println("\nPIANO PLAYS\n" +
+                "Nums: " + nums + "\n" +
+                "Chords: " + chords + "\n" +
+                "Place: " + place);
     }
+
 
     public int getNums() {
         return nums;

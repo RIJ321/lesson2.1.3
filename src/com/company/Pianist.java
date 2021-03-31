@@ -1,16 +1,28 @@
 package com.company;
 
 public final class Pianist extends Orchestra {
-    public Pianist(int nums, String chords, String place) {
-        super(nums, chords, place);
+
+    private int quantity;
+    private String male;
+
+    public Pianist(int nums, String chords, String place, int quantity) {
+        super(nums, chords, place, quantity);
+        this.quantity = quantity;
     }
 
-    public void play(int verse, int age, String male) {
-        super.play(verse, age, male);
-        System.out.println("\n_________________\n" +
-                "Verse: " + verse + "\n" +
-                "Age: " + age + "\n" +
-                "Male: " + male);
+    public String getMale() {
+        return male;
     }
 
+    @Override
+    public void info() {
+        super.info();
+        System.out.println("Male: " + male);
+    }
+
+    public final void pianists(String male) {
+        super.pianists();
+        this.male = male;
+        System.out.println("Male: "+ male);
+    }
 }

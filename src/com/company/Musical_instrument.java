@@ -6,7 +6,7 @@ public enum Musical_instrument {
     FLUTE,
     VIOLIN,
     DRUMS,
-    GUITAR,
     ALL,
+    VOCAL,
 
 }
